@@ -11,13 +11,30 @@
     font-size: 22px;
     box-sizing: border-box;
     cursor: pointer;
-    
-    box-shadow: 2px 2px 4px;
+    box-shadow: 0 0 10px rgb(52, 146, 252),
+                inset 0 0 20px rgb(255, 255, 255);
 
   }
 
   .button-pad:active {
-    box-shadow: 0 0 0 0;
+    box-shadow: inset 2px 2px 8px rgb(9, 115, 235);
     background-color: rgb(52, 146, 252);
     font-size: 21px;
+  }
+
+  .button-pad-keypress{
+    display:flex;
+    background-color: rgb(52, 146, 252);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100px;
+    height: 80px;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 21px;
+    box-sizing: border-box;
+    cursor: pointer;
+    box-shadow: inset 2px 2px 8px rgb(9, 115, 235);
+                
   }
