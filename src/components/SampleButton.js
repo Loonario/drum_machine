@@ -1,14 +1,15 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
 import './SampleButton.css';
+import StyleContext from '../context';
 
 
 const SampleButton = (props) => {
     const {id, keyTrigger, keyCode, url} = props;
-    const [padActive, setPadActive] = useState(false);
     const [drumPadClass, setdrumPadClass] = useState('button-pad')
     const [keyPressed, setKeyPressed] = useState('');
+
+    const {innerStyle, setInnerStyle} = useContext(StyleContext);
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyPress);
@@ -40,6 +41,7 @@ const SampleButton = (props) => {
             //console.log(`key ${e.key} off`);
             setKeyPressed('');
             setdrumPadClass('button-pad');
+            setInnerStyle('inner-container');
     }
 };
    
@@ -59,6 +61,7 @@ const SampleButton = (props) => {
         sound.currentTime = 0;
      sound.play();
      setdrumPadClass('button-pad-keypress');
+     setInnerStyle('inner-container-pressed')
      
       }
    

@@ -1,9 +1,9 @@
-import React from 'react';
-
+import React, {useState} from 'react';
 import ThemeProvider from 'react-bootstrap/ThemeProvider';
 import Container from 'react-bootstrap/Container';
 import Stack from 'react-bootstrap/Stack'
 import './App.css';
+import StyleContext from './context';
 import ButtonList from './containers/ButtonsList';
 import Volume from './components/Volume';
 
@@ -70,16 +70,17 @@ const row_3 = bankOne.slice(6, 9);
 
 function App() {
 
- 
+const [innerStyle, setInnerStyle] = useState('inner-container');
 
   return (
+    <StyleContext.Provider value = {{innerStyle, setInnerStyle}}>
     <ThemeProvider
   breakpoints={['lg', 'md', 'sm', 'xs']}
 >
 
 
   <div className={'container-main'}>
-    <div className={'inner-container'}>
+    <div className={innerStyle}>
       <div className = {'drum-pad'}>
       <Stack gap={3}>
       <ButtonList buttons = {row_1}/>
@@ -94,6 +95,7 @@ function App() {
       </div>
       </div>
     </ThemeProvider>
+    </StyleContext.Provider>
   )
 }
 
