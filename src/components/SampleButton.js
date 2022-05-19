@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SampleButton.css';
-import StyleContext from '../context';
+import StyleContext from '../StyleContext';
+import VolumeContext from '../VolumeContext';
 
 
 const SampleButton = (props) => {
@@ -10,18 +11,26 @@ const SampleButton = (props) => {
     const [keyPressed, setKeyPressed] = useState('');
 
     const {innerStyle, setInnerStyle} = useContext(StyleContext);
+    const {volume, setVolume} = useContext(VolumeContext);
+
+    useEffect(() => {
+        console.log('volume ' + volume + ' updated')
+    }, [volume]);
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyPress);
+        
             return () => {
+                
                 document.removeEventListener('keydown', handleKeyPress)         
             }
-    }, []);
+    }, [volume]);
 
     const handleKeyPress = (e) => {
         if (e.key == keyTrigger.toLowerCase() && !e.repeat){
             //console.log(`key ${e.key} pressed`);
-            e.preventDefault();
+            console.log('key ' + volume);
+           // e.preventDefault();
             playSound();
             setKeyPressed(e.key);
         }
@@ -50,19 +59,20 @@ const SampleButton = (props) => {
         let sound = new Audio (url);
         sound.loop = false;
         sound.currentTime = 0;
-        sound.volume = 0.2;
+        sound.volume = volume / 100;
+        console.log('click ' + volume);
         sound.play();
       }
 
       const playSound = () => {
         let sound = new Audio(url);
-        sound.volume = 0.2;
         sound.loop = false;
         sound.currentTime = 0;
-     sound.play();
-     setdrumPadClass('button-pad-keypress');
-     setInnerStyle('inner-container-pressed')
-     
+        sound.volume = volume / 100;
+        // console.log('key ' + volume);
+        sound.play();
+        setdrumPadClass('button-pad-keypress');
+        setInnerStyle('inner-container-pressed');
       }
    
 

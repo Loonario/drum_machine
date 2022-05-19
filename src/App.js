@@ -3,7 +3,8 @@ import ThemeProvider from 'react-bootstrap/ThemeProvider';
 import Container from 'react-bootstrap/Container';
 import Stack from 'react-bootstrap/Stack'
 import './App.css';
-import StyleContext from './context';
+import StyleContext from './StyleContext';
+import VolumeContext from './VolumeContext';
 import ButtonList from './containers/ButtonsList';
 import Volume from './components/Volume';
 
@@ -71,9 +72,12 @@ const row_3 = bankOne.slice(6, 9);
 function App() {
 
 const [innerStyle, setInnerStyle] = useState('inner-container');
+const [volume, setVolume] = useState(50);
 
   return (
+    <VolumeContext.Provider value = {{volume, setVolume}}>
     <StyleContext.Provider value = {{innerStyle, setInnerStyle}}>
+
     <ThemeProvider
   breakpoints={['lg', 'md', 'sm', 'xs']}
 >
@@ -96,6 +100,8 @@ const [innerStyle, setInnerStyle] = useState('inner-container');
       </div>
     </ThemeProvider>
     </StyleContext.Provider>
+    </VolumeContext.Provider>
+    
   )
 }
 

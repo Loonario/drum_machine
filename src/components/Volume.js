@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Form from 'react-bootstrap/Form';
-import 'bootstrap';
+import VolumeContext from '../VolumeContext';
 
-const  Volume = (props) => {
-
+const  Volume = () => {
+const {volume, setVolume} = useContext(VolumeContext);
 
     return (
         <div>
    <Form>
   <Form.Range
-    value = '7'
-    min = '0'
-    max ='10'
+    value = {volume}
     id="customrange"
+    // min = {0}
+    // max = {100}
     label="Check this range"
+    onChange = {e => setVolume(e.target.value)}
   />
 </Form>
         </div>
