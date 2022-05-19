@@ -7,6 +7,7 @@ import StyleContext from './StyleContext';
 import VolumeContext from './VolumeContext';
 import ButtonList from './containers/ButtonsList';
 import Volume from './components/Volume';
+import Screen from './components/Screen';
 
 const bankOne = [
   {
@@ -93,6 +94,7 @@ const [volume, setVolume] = useState(50);
       </Stack>
       </div>
       <div className={'other-func'}>
+      <Screen />
       <Volume />
       </div>
       

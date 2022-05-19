@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './SampleButton.css';
 import StyleContext from '../StyleContext';
 import VolumeContext from '../VolumeContext';
@@ -13,9 +12,9 @@ const SampleButton = (props) => {
     const {innerStyle, setInnerStyle} = useContext(StyleContext);
     const {volume, setVolume} = useContext(VolumeContext);
 
-    useEffect(() => {
-        console.log('volume ' + volume + ' updated')
-    }, [volume]);
+    // useEffect(() => {
+    //     console.log('volume ' + volume + ' updated')
+    // }, [volume]);
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyPress);
@@ -29,8 +28,7 @@ const SampleButton = (props) => {
     const handleKeyPress = (e) => {
         if (e.key == keyTrigger.toLowerCase() && !e.repeat){
             //console.log(`key ${e.key} pressed`);
-            console.log('key ' + volume);
-           // e.preventDefault();
+            e.preventDefault();
             playSound();
             setKeyPressed(e.key);
         }
@@ -60,7 +58,7 @@ const SampleButton = (props) => {
         sound.loop = false;
         sound.currentTime = 0;
         sound.volume = volume / 100;
-        console.log('click ' + volume);
+        //console.log('click ' + volume);
         sound.play();
       }
 

@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Form from 'react-bootstrap/Form';
 import VolumeContext from '../VolumeContext';
+//import './EditedBootStyles.min.css'
 
 const  Volume = () => {
 const {volume, setVolume} = useContext(VolumeContext);
@@ -15,6 +16,7 @@ const {volume, setVolume} = useContext(VolumeContext);
     // max = {100}
     label="Check this range"
     onChange = {e => setVolume(e.target.value)}
+    
   />
 </Form>
         </div>
