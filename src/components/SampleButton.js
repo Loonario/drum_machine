@@ -73,7 +73,7 @@ const SampleButton = (props) => {
         sound.play();
         setdrumPadClass('button-pad-keypress');
         setInnerStyle('inner-container-pressed');
-        setSampleName({id});
+        setSampleName(id);
       }
    
 
