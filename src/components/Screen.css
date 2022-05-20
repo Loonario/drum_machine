@@ -1,7 +1,107 @@
 .screen {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
     height: 50px;
     margin: 1rem 0;
+    border-radius: 4px;
     background-color: rgb(193, 247, 255);
     box-shadow: 0 0 4px rgb(52, 146, 252),
         inset 0 0 20px rgb(255, 255, 255);
+    transition: background-color .15s linear, box-shadow .15s linear;
+}
+
+.screen-disabled {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        margin: 1rem 0;
+        border-radius: 4px;
+        background-color: rgb(122, 122, 122);
+        box-shadow: inset 0 0 5px rgb(255, 255, 255);
+        transition: background-color .35s linear, box-shadow .35s linear;
+}
+
+.vol-text {
+        display: flex;
+        position: absolute;
+        padding: 0 1.5rem;
+        justify-content: space-between;
+        width: 100%;
+        text-shadow: 0 0 2px rgb(52, 146, 252);
+        color:rgb(72, 72, 72);
+        font-size: 18pt;
+        text-align: center;
+        opacity: 1;
+        transition: opacity .15s linear;
+}
+.vol-text-hidden {
+        display: flex;
+        position: absolute;
+        padding: 0 1.5rem;
+        justify-content: space-between;
+        width: 100%;
+        text-shadow: 0 0 2px rgb(52, 146, 252);
+        color:rgb(72, 72, 72);
+        font-size: 18pt;
+        text-align: center;
+        opacity: 0;
+        transition: opacity .35s linear;
+}
+
+.vol-text-disabled {
+    display: flex;
+    position: absolute;
+    margin: 1.5rem;
+    justify-content: space-between;
+    width: 100%;
+    text-shadow: 0 0 2px rgb(52, 146, 252);
+    color:rgb(72, 72, 72);
+    font-size: 18pt;
+    text-align: center;
+    opacity: 0;
+}
+
+.sample {
+    display: flex;
+    position: absolute;
+    margin: 1.5rem;
+    justify-content: center;
+    width: 100%;
+    text-shadow: 0 0 2px rgb(52, 146, 252);
+    color:rgb(72, 72, 72);
+    font-size: 18pt;
+    text-align: center;
+    opacity: 1;
+    transition: opacity .15s linear;
+}
+
+.sample-hidden {
+    display: flex;
+    position: absolute;
+    margin: 1.5rem;
+    justify-content: center;
+    width: 100%;
+    text-shadow: 0 0 2px rgb(52, 146, 252);
+    color:rgb(72, 72, 72);
+    font-size: 18pt;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .35s linear;
+}
+
+.sample-disabled {
+    display: flex;
+    position: absolute;
+    margin: 1.5rem;
+    justify-content: center;
+    width: 100%;
+    text-shadow: 0 0 2px rgb(52, 146, 252);
+    color:rgb(72, 72, 72);
+    font-size: 18pt;
+    text-align: center;
+    opacity: 0;
 }

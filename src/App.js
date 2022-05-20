@@ -5,6 +5,7 @@ import Stack from 'react-bootstrap/Stack'
 import './App.css';
 import StyleContext from './StyleContext';
 import VolumeContext from './VolumeContext';
+import SampleContext from './SampleContext';
 import ButtonList from './containers/ButtonsList';
 import Volume from './components/Volume';
 import Screen from './components/Screen';
@@ -74,8 +75,9 @@ function App() {
 
 const [innerStyle, setInnerStyle] = useState('inner-container');
 const [volume, setVolume] = useState(50);
-
+const [sampleName, setSampleName] = useState('');
   return (
+    <SampleContext.Provider value={{sampleName, setSampleName}}>
     <VolumeContext.Provider value = {{volume, setVolume}}>
     <StyleContext.Provider value = {{innerStyle, setInnerStyle}}>
 
@@ -85,8 +87,8 @@ const [volume, setVolume] = useState(50);
 
 
   <div className={'container-main'}>
-    <div className={innerStyle}>
-      <div className = {'drum-pad'}>
+    <div className={innerStyle} id={"drum-machine"}>
+      <div className = {'drum-set'}>
       <Stack gap={3}>
       <ButtonList buttons = {row_1}/>
       <ButtonList buttons = {row_2}/>
@@ -94,7 +96,7 @@ const [volume, setVolume] = useState(50);
       </Stack>
       </div>
       <div className={'other-func'}>
-      <Screen />
+      <Screen expiryTimestamp = {0} />
       <Volume />
       </div>
       
@@ -103,6 +105,7 @@ const [volume, setVolume] = useState(50);
     </ThemeProvider>
     </StyleContext.Provider>
     </VolumeContext.Provider>
+    </SampleContext.Provider>
     
   )
 }

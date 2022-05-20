@@ -1,4 +1,4 @@
-.button-pad {
+.drum-pad {
     display:flex;
     background-color: rgb(212, 232, 255);
     align-items: center;
@@ -16,7 +16,7 @@
 
   }
 
-  .button-pad:active {
+  .drum-pad:active {
     box-shadow: inset 2px 2px 8px rgb(9, 115, 235);
     background-color: rgb(52, 146, 252);
     font-size: 21px;

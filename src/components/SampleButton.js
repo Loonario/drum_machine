@@ -2,13 +2,14 @@ import React, { useEffect, useState, useContext } from 'react';
 import './SampleButton.css';
 import StyleContext from '../StyleContext';
 import VolumeContext from '../VolumeContext';
+import SampleContext from '../SampleContext';
 
 
 const SampleButton = (props) => {
     const {id, keyTrigger, keyCode, url} = props;
-    const [drumPadClass, setdrumPadClass] = useState('button-pad')
+    const [drumPadClass, setdrumPadClass] = useState('drum-pad')
     const [keyPressed, setKeyPressed] = useState('');
-
+    const {sampleName, setSampleName} = useContext(SampleContext);
     const {innerStyle, setInnerStyle} = useContext(StyleContext);
     const {volume, setVolume} = useContext(VolumeContext);
 
@@ -47,7 +48,7 @@ const SampleButton = (props) => {
             e.preventDefault();
             //console.log(`key ${e.key} off`);
             setKeyPressed('');
-            setdrumPadClass('button-pad');
+            setdrumPadClass('drum-pad');
             setInnerStyle('inner-container');
     }
 };
@@ -60,6 +61,7 @@ const SampleButton = (props) => {
         sound.volume = volume / 100;
         //console.log('click ' + volume);
         sound.play();
+        setSampleName(id);
       }
 
       const playSound = () => {
@@ -71,6 +73,7 @@ const SampleButton = (props) => {
         sound.play();
         setdrumPadClass('button-pad-keypress');
         setInnerStyle('inner-container-pressed');
+        setSampleName({id});
       }
    
 
